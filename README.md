@@ -2,7 +2,8 @@
 
 ## By  Mark ian Mumba
 
-## screenshots
+## screenshot
+
 
 
 ## Description
@@ -27,7 +28,26 @@
 
   * in the terminal:
 
-           $ git clone https://github.com/markmumba/News-Highlight.git
-            $ cd News-Highlight
+        $ git clone https://github.com/markmumba/News-Highlight.git
+        $ cd News-Highlight
+
+ ## Running the Application
+* Creating the virtual environment
+
+        $ python3.6 -m venv --without-pip virtual
+        $ source virtual/bin/env
+        $ curl https://bootstrap.pypa.io/get-pip.py | python            
 
 
+* To run the application, in your terminal:
+
+        $ chmod +x start.sh
+        $ ./start.sh
+        
+## Technologies Used
+* Python3.6
+* Flask
+
+
+## License
+MIT &copy;2019  [Markian Mumba](https://github.com/markmumba/)
