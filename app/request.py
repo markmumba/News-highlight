@@ -1,9 +1,6 @@
-from app import app
-import urllib.request
-import json
-from .models import news
+import urllib.request,json
+from .models import News
 
-News = news.News
 
 # getting api_key
 api_key =None

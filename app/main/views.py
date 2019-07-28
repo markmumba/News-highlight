@@ -1,11 +1,12 @@
 from flask import render_template,request,redirect,url_for
-from app import app
-from .request import get_news,get_newss
+from ..request import get_news,get_newss
+from ..models import Article
+from . import main
 
 
 
 
-@app.route('/')
+@main.route('/')
 
 def index():
     
@@ -36,16 +37,18 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/news/<news_id>')
+@main.route('/news/<news_id>')
 def news(id):
 
     '''
     View movie page function that returns the movie details page and its data
     '''
-    news = get_newss(id)
-    title =  '{news.title}'
 
-
-    return render_template('news.html',title = title,news = news)
+    source = get_newss(id)
+    newsid = id.capitalize()
+    title = f'{newsid}'
+    details = id.capitalize()
+    content = f'{details}'
+    return render_template('news_source.html',  title = title, id = newsid ,source = source ,content = content)
 
 
