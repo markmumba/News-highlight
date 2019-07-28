@@ -1,7 +1,8 @@
 import unittest
-from app.models import news
+from app.models import News
 
-News = news.News
+
+
 
 
 
