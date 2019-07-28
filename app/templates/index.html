@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+
+{% block content %}
+
+<h3> News Highlights</h3>
+    <ul>
+       {{macro.displayNewsList(general) }}
+    </ul>
+<h3> Bussiness </h3>
+    <ul>
+    {{ macro.displayNewsList(bussiness)}}
+    </ul>
+<!-- Now showing movie -->
+<h3> Technology</h3>
+    <ul>
+    {{ macro.displayNewsList(technology)}}
+    </ul>
+<h3></h3>
+
+
+{% endblock %}
