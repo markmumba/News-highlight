@@ -1,18 +1,2 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the Daily News </title>
-        {% endif %}
-    </head>
-    <body>
-          
-        {% block content%}
-
-        {% endblock %}
-
-    </body>
-
+  
+  {% extends 'bootstrap/base.html'%}
