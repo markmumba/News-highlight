@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_news
+from .request import get_news,get_newss
 
 
 
@@ -15,11 +15,15 @@ def index():
 
 
 @app.route('/news/<news_id>')
-def news(news_id):
+def news(id):
 
     '''
     View movie page function that returns the movie details page and its data
     '''
-    return render_template('news.html',id = news_id)
+    news = get_newss(id)
+    title =  '{news.title}'
+
+
+    return render_template('news.html',title = title,news = news)
 
 

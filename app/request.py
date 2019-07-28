@@ -51,7 +51,7 @@ def process_results(news_list):
     return news_results
 
 
-def get_source_news(source):
+def get_newss(source):
     get_news_source_url = base_url.format(source, api_key)
 
     with urllib.request.urlopen(get_news_source_url) as url:
