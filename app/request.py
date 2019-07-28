@@ -30,6 +30,8 @@ def get_news(category):
 
 
 def process_results(news_list):
+
+        
     news_results = []
 
     for new_item in news_list:
@@ -42,11 +44,10 @@ def process_results(news_list):
         publishedAt = new_item.get('publishedAt')
         content = new_item.get('content')
 
-        if urlToImage:
-            news_object = (id, author, title, description, url,
-                           urlToImage, publishedAt, content)
+        news_object = (id, author, title, description, url,
+                       urlToImage, publishedAt, content)
 
-            news_results.append(news_object)
+        news_results.append(news_object)
 
     return news_results
 
@@ -55,16 +56,13 @@ def get_newss(source):
     get_news_source_url = base_url.format(source, api_key)
 
     with urllib.request.urlopen(get_news_source_url) as url:
-        get_news_source_data=url.read()
+        get_news_source_data = url.read()
         get_news_source_response = json.loads(get_news_source_data)
 
         news_source_results = None
 
-
         if get_news_source_response['sources']:
             news_source_results_list = get_news_source_response['sources']
-            news_source_results= process_results(news_source_results_list)
-
+            news_source_results = process_results(news_source_results_list)
 
     return news_source_results
-
