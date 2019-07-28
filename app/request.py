@@ -49,3 +49,8 @@ def process_results(news_list):
             news_results.append(news_object)
 
     return news_results
+
+
+def get_news(source):
+    get_news_source_url = base_url.format(source, api_key)
+    
