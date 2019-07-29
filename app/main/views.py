@@ -1,54 +1,41 @@
-from flask import render_template,request,redirect,url_for
-from ..request import get_news,get_newss
-from ..models import Article
+from flask import render_template,request,redirect,url_for  
+from ..request import get_news_sources,get_news_source
+from ..models import news_Article
 from . import main
 
-
-
-
+# Views
 @main.route('/')
-
 def index():
-    
+
     '''
-    view root page func that returns index page an func
+    View root page function that returns the index page and its data
     '''
-    general = get_news('general')
-    business = get_news('business')
-    technology = get_news('technology')
-    health = get_news('health')
-    science = get_news('science')
-    sports = get_news('sports')
+    #getting news sources based on the category from the news sources endpoint
+    general = get_news_sources('general')
+    business = get_news_sources('business')
+    technology = get_news_sources('technology')
+    health = get_news_sources('health')
+    science = get_news_sources('science')
+    sports = get_news_sources('sports')
     
     title = 'The best news Highlits In The World'
     
-    search_news_source =request.args.get('news_query')
-
+    search_news_source = request.args.get('news_query')
 
     if search_news_source:
         return redirect(url_for('main.index',news_name = search_news_source))
     else:
         return render_template('index.html',title = title,general = general ,business = business, technology = technology,health=health,science=science,sports=sports)
 
-
-
-
-
-    return render_template('index.html')
-
-
-@main.route('/news/<news_id>')
-def news(id):
-
+@main.route('/source/<id>')
+def source(id):
     '''
-    View movie page function that returns the movie details page and its data
+    View root page function theat returns the index pages and its  data 
     '''
-
-    source = get_newss(id)
+    source = get_news_source(id)
     newsid = id.capitalize()
     title = f'{newsid}'
     details = id.capitalize()
     content = f'{details}'
+    # articles = news_source.get_news_source(source.id)
     return render_template('news_source.html',  title = title, id = newsid ,source = source ,content = content)
-
-

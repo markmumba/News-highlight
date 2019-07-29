@@ -1,35 +1,33 @@
-{% macro displayNewsList(news_list)%}
+{% macro displayNewsList(news_list) %}
 
-    {% for new in news_list %}
-    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">    
-            <li class="text-center">
-                    <h4>{{new.urlToImage}}</h4>
-                    <h4>{{new.name}}</h4>
-                    <h4>{{new.description}}</h4>
-                    <h4>{{new.publishedAt}}</h4>
-                    <a href="{{new.url}}"><h4>{{new.url}}</h4></a>
-                    <a href="/new/{{new.id}}">{{ new.id|truncate(10)}}</a>
-            </li>
-        </div>
-        
-        {% endfor %}
-        
-    {% endmacro %}
-        
-    {% macro displayArticlesList(articles_list) %}
+{% for source in news_list %}
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">    
+    <li class="text-center">
+            <h4>{{source.name}}</h4>
+            <h4>{{source.description}}</h4>
+            <h4>{{source.publishedAt}}</h4>
+            <a href="{{source.url}}"><h4>{{source.url}}</h4></a>
+            <a href="/source/{{source.id}}">{{ source.id|truncate(10)}}</a>
+    </li>
+</div>
 
-    {% for article in articles_list %}
-    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">    
-        <li class="text-center">
-            <!-- <a href="/source/{{source.id}}">
-                {{ source.id|truncate(10)}}</a> -->
-                <h4>{{article.author}}</h4>
-                <p>{{article.content}}</p>
-            <!-- <a href="{{source.url}}">click Here To Read</a> -->
-        </li>
-    </div>
-    
-    {% endfor %}
-    
-    {% endmacro %}
-    
+{% endfor %}
+
+{% endmacro %}
+
+{% macro displayArticlesList(articles_list) %}
+
+{% for article in articles_list %}
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">    
+    <li class="text-center">
+        <!-- <a href="/source/{{source.id}}">
+            {{ source.id|truncate(10)}}</a> -->
+            <h4>{{article.author}}</h4>
+            <p>{{article.content}}</p>
+        <!-- <a href="{{source.url}}">click Here To Read</a> -->
+    </li>
+</div>
+
+{% endfor %}
+
+{% endmacro %}
