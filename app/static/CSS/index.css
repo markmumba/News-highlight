@@ -1,6 +1,7 @@
 h1{
     font-size: 60px;
     font-family: 'Rubik', sans-serif;
+    text-align: center;
     
 
 }
@@ -8,5 +9,5 @@ h1{
     background-color: #254441;
     font-family: 'Rubik', sans-serif;
     color: beige;
-    
+
 }
